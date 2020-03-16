@@ -1,0 +1,14 @@
+indices:
+    by_groupnamet:
+        properties:
+            - groupname
+        properties_type: Vertex.class
+        unique: False
+        type: composite
+        
+    by_usernamet:
+        properties:
+            - username
+        properties_type: Vertex.class
+        unique: False
+        type: composite

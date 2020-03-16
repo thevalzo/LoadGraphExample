@@ -1,0 +1,5 @@
+gremlinpython==3.4.0
+tqdm
+Owlready2
+pyyaml
+pandas

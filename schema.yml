@@ -1,0 +1,202 @@
+vertices:
+    - ontology 
+    - person
+    - organization
+    - place
+    - action
+    - activity
+    - work
+    - identifier
+    - event
+    - thing
+
+edges:
+    rdfs:subclassof: MANY2ONE
+    rdf:type: MULTI
+    
+properties: 
+        access_rights:
+            type: String.class
+            cardinality: org.janusgraph.core.Cardinality.SINGLE
+        iri: 
+            type: String.class
+            cardinality: org.janusgraph.core.Cardinality.SINGLE
+
+        label_vp:
+            type: String.class
+            cardinality: org.janusgraph.core.Cardinality.SINGLE
+            
+        label_ep:
+            type: String.class
+            cardinality: org.janusgraph.core.Cardinality.SINGLE
+
+        name: 
+            type: String.class
+            cardinality: org.janusgraph.core.Cardinality.SINGLE
+
+        comment:
+            type: String.class
+            cardinality: org.janusgraph.core.Cardinality.SINGLE
+
+        lat:
+            type: Double.class
+            cardinality: org.janusgraph.core.Cardinality.SINGLE
+            
+        lon:
+            type: Double.class
+            cardinality: org.janusgraph.core.Cardinality.SINGLE
+        
+        topOntology:
+            type: String.class
+            cardinality: org.janusgraph.core.Cardinality.SINGLE
+            
+        closure:
+            type: String.class
+            cardinality: org.janusgraph.core.Cardinality.SET
+
+        level:
+            type: Integer.class
+            cardinality: org.janusgraph.core.Cardinality.SINGLE
+
+        role:
+            type: String.class
+            cardinality: org.janusgraph.core.Cardinality.SET
+        
+        group:
+            type: String.class
+            cardinality: org.janusgraph.core.Cardinality.SET
+        
+        owner:
+            type: String.class
+            cardinality: org.janusgraph.core.Cardinality.SINGLE
+
+        topOntology:
+            type: String.class
+            cardinality: org.janusgraph.core.Cardinality.SINGLE
+
+indices:
+    by_access_rights:
+        properties:
+            - access_rights
+        properties_type: Vertex.class
+        unique: False
+        type: composite
+        
+    by_iri:
+        properties:
+            - iri
+        properties_type: Vertex.class
+        unique: True
+        type: composite
+        
+    by_iriMixed:
+        properties:
+            - iri
+        properties_type: Vertex.class
+        unique: False
+        type: mixed
+        
+    by_closure:
+        properties:
+            - closure
+        properties_type: Vertex.class
+        unique: False
+        type: composite
+    
+    by_topOntology:
+        properties:
+            - topOntology
+        properties_type: Vertex.class
+        unique: False
+        type: composite 
+
+    by_label_vp:
+        properties:
+            - label_vp
+        properties_type: Vertex.class
+        unique: False
+        type: composite
+        
+    by_label_ep:
+        properties:
+            - label_ep
+        properties_type: Edge.class
+        unique: False
+        type: composite
+    
+    by_name:
+        properties:
+            - name
+        properties_type: Vertex.class
+        unique: False
+        type: composite
+    
+    by_nameMixed:
+        properties:
+            - name
+        properties_type: Vertex.class
+        unique: False
+        type: mixed
+
+    by_lat:
+        properties:
+            - lat
+        properties_type: Vertex.class
+        unique: False
+        type: composite
+
+    by_lon:
+        properties:
+            - lon
+        properties_type: Vertex.class
+        unique: False
+        type: composite
+        
+    by_level:
+        properties:
+            - level
+        properties_type: Vertex.class
+        unique: False
+        type: composite
+
+    by_levelE:
+        properties:
+            - level
+        properties_type: Edge.class
+        unique: False
+        type: composite
+
+    by_role:
+        properties:
+            - role
+        properties_type: Vertex.class
+        unique: False
+        type: composite
+    
+    by_group:
+        properties:
+            - group
+        properties_type: Vertex.class
+        unique: False
+        type: composite
+
+    by_owner:
+        properties:
+            - owner
+        properties_type: Vertex.class
+        unique: False
+        type: composite
+
+    by_ownerE:
+        properties:
+            - owner
+        properties_type: Edge.class
+        unique: False
+        type: composite
+
+    by_comment:
+        properties:
+            - comment
+        properties_type: Vertex.class
+        unique: False
+        type: mixed
